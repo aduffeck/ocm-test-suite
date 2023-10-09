@@ -5,17 +5,15 @@ FROM ubuntu:22.04
 RUN apt update && apt install -y openssl build-essential wget git vim
 RUN wget https://golang.org/dl/go1.19.linux-amd64.tar.gz
 RUN tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
-RUN git clone --depth=1 --branch=ocmd-error-messages-backport https://github.com/cs3org/reva
+RUN git clone --depth=1 --branch=master https://github.com/cs3org/reva
 WORKDIR /reva
-RUN PATH=$PATH:/usr/local/go/bin make deps
-RUN PATH=$PATH:/usr/local/go/bin make build
+
 # see https://github.com/moby/moby/issues/1996#issuecomment-185872769
 ARG CACHEBUST=1
 RUN git pull
 RUN PATH=$PATH:/usr/local/go/bin go mod vendor
-RUN PATH=$PATH:/usr/local/go/bin make deps
-RUN PATH=$PATH:/usr/local/go/bin make build
-# RUN PATH=$PATH:/usr/local/go/bin make test
+RUN PATH=$PATH:/usr/local/go/bin make reva revad
+
 ADD . /etc/revad
 WORKDIR /etc/revad
 # RUN openssl req -new -x509 -days 365 -nodes \
