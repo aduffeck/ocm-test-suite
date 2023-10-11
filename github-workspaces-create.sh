@@ -4,7 +4,7 @@ set -e
 
 git clone --branch=main https://github.com/pondersource/nc-sciencemesh
 git clone --branch=main https://github.com/pondersource/oc-sciencemesh
-git clone --branch=efss-backend-fixes https://github.com/cs3org/reva
+git clone --branch=ocm2 https://github.com/aduffeck/reva
 git clone --branch=main https://github.com/michielbdejong/ocm-stub
 
 /bin/bash ./gencerts.sh

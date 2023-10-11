@@ -6,7 +6,7 @@ REPO_ROOT=`pwd`
 
 git clone --branch=nextcloud https://github.com/sciencemesh/nc-sciencemesh
 git clone --branch=owncloud https://github.com/sciencemesh/nc-sciencemesh oc-sciencemesh
-git clone --branch=master https://github.com/cs3org/reva
+git clone --branch=ocm2 https://github.com/aduffeck/reva
 git clone --branch=main https://github.com/michielbdejong/ocm-stub
 
 /bin/bash ./gencerts.sh
